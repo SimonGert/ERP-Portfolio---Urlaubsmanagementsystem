@@ -1,0 +1,23 @@
+projection;
+strict ( 2 );
+
+define behavior for ZRESK_C_Mitarbeiter
+{
+  use association _Urlaubsantrag { create; }
+  use association _Urlaubsanspruch { }
+}
+
+
+define behavior for ZRESK_C_Urlaubsanspruch
+{
+  use association _Mitarbeiter;
+}
+
+
+define behavior for ZRESK_C_Urlaubsantrag
+{
+  use update;
+  use delete;
+
+  use association _Antragsteller;
+}

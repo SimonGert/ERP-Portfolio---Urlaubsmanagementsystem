@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Defintion Mitarbeiter'
+define service ZRESK_UI_Mitarbeiter {
+  expose ZRESK_C_Mitarbeiter     as Mitarbeiter;
+  expose ZRESK_C_Urlaubsantrag;
+  expose ZRESK_C_Urlaubsanspruch;
+  expose ZRESK_C_URLAUBSANTRAEGE;
+}

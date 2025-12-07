@@ -1,0 +1,118 @@
+managed implementation in class zresk_bp_mitarbeiter unique;
+strict ( 2 );
+
+define behavior for ZRESK_R_Mitarbeiter
+persistent table zresk_arbeiter
+lock master
+authorization master ( instance )
+
+{
+
+  field ( readonly, numbering : managed ) MitarbeiterUuid;
+
+  field ( readonly ) CreatedBy;
+  field ( readonly ) CreatedAt;
+  field ( readonly ) LastChangedBy;
+  field ( readonly ) LastChangedAt;
+
+  association _Urlaubsanspruch;
+  association _Urlaubsantrag { create; }
+  association _Antragsteller;
+  association _Genehmigender;
+
+
+  mapping for zresk_arbeiter corresponding
+    {
+      MitarbeiterUuid   = mitarbeiter_uuid;
+      Mitarbeiternummer = mitarbeiternummer;
+      Vorname           = vorname;
+      Nachname          = nachname;
+      Eintrittsdatum    = eintrittsdatum;
+      CreatedBy         = created_by;
+      CreatedAt         = created_at;
+      LastChangedBy     = last_changed_by;
+      LastChangedAt     = last_changed_at;
+    }
+}
+
+
+
+define behavior for ZRESK_R_Urlaubsanspruch
+persistent table zresk_uanspruch
+lock dependent by _Mitarbeiter
+authorization dependent by _Mitarbeiter
+
+{
+
+  field ( readonly, numbering : managed ) UrlaubsanspruchUuid;
+  field ( readonly ) MitarbeiterUuid;
+
+  field ( readonly ) CreatedAt;
+  field ( readonly ) CreatedBy;
+  field ( readonly ) LastChangedAt;
+  field ( readonly ) LastChangedBy;
+
+
+  association _Mitarbeiter;
+
+  mapping for zresk_uanspruch corresponding
+    {
+      UrlaubsanspruchUuid = urlaubsanspruch_uuid;
+      MitarbeiterUuid     = mitarbeiter_uuid;
+      Jahr                = jahr;
+      Urlaubstage         = urlaubstage;
+      CreatedBy     = created_by;
+      CreatedAt     = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+    }
+}
+
+
+define behavior for ZRESK_R_Urlaubsantrag
+persistent table zresk_uantrag
+lock dependent by _Antragsteller
+authorization dependent by _Antragsteller
+{
+
+  update;
+  delete;
+
+  association _Antragsteller;
+  association _Genehmigender;
+
+  action AblehnenUrlaubsantrag result [1] $self;
+  action GenehmigeUrlaubsantrag result [1] $self;
+
+  validation BestaetigeUrlaubstage on save { create; update; }
+  validation BestaetigeDatum on save { create; update; }
+
+  determination BestimmeStatus on modify
+  { field GenehmigenderName, Startdatum, Enddatum, Kommentar; }
+
+  determination BestimmeUrlaubstage on modify
+  { field Startdatum, Enddatum; }
+
+  field ( readonly, numbering : managed ) UrlaubsantragUuid;
+  field ( mandatory : create ) GenehmigenderUuid, Startdatum, Enddatum;
+  field ( readonly ) AntragstellerName, GenehmigenderName, AntragstellerUuid, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, Status, Urlaubstage;
+
+
+  mapping for zresk_uantrag corresponding
+    {
+      UrlaubsantragUuid = urlaubsantrag_uuid;
+      AntragstellerUuid = antragsteller_uuid;
+      GenehmigenderUuid = genehmigender_uuid;
+      Startdatum        = startdatum;
+      Enddatum          = enddatum;
+      Urlaubstage       = urlaubstage;
+      Kommentar         = kommentar;
+      Status            = status;
+      CreatedBy         = created_by;
+      CreatedAt         = created_at;
+      LastChangedBy     = last_changed_by;
+      LastChangedAt     = last_changed_at;
+    }
+
+
+}

@@ -1,0 +1,20 @@
+projection;
+strict ( 2 );
+
+define behavior for ZRESK_C_Mitarbeiter_Manager //alias <alias_name>
+{
+
+  use association _Urlaubsantrag;
+
+}
+
+
+
+define behavior for ZRESK_C_URLAUBSANTRAEGE //alias <alias_name>
+{
+  use action GenehmigeUrlaubsantrag;
+  use action AblehnenUrlaubsantrag;
+
+  use association _Antragsteller;
+  use association _Genehmigender;
+}

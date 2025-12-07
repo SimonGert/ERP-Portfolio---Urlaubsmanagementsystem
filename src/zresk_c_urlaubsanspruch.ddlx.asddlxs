@@ -1,0 +1,57 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{
+  typeName: 'Urlaubsanspruch',
+  typeNamePlural: 'Urlaubsansprüche',
+  title.value: 'UrlaubsanspruchUuid',
+  description.value: 'Urlaubstage'
+}
+annotate entity ZRESK_C_Urlaubsanspruch with
+{
+    @UI.facet:
+  [
+      { position: 10, targetQualifier: 'VacationEntitlements', label: 'Vacation Entitlements', type: #FIELDGROUP_REFERENCE },
+      { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
+  ]
+
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]  
+  UrlaubsanspruchUuid;
+  
+  //EmployeeUuid;
+  @UI.fieldGroup: [{ position: 10, qualifier: 'VacationEntitlements' }]
+  @UI.lineItem: [{ position: 10 }] 
+  Jahr;
+  
+  @UI.fieldGroup: [{ position: 20, qualifier: 'VacationEntitlements' }]
+  @UI.lineItem: [{ position: 20 }] 
+  Urlaubstage;
+  
+  @UI.fieldGroup: [{ position: 30, qualifier: 'VacationEntitlements', label: 'VerfuegbareUrlaubstage' }]
+  @UI.lineItem: [{ position: 30, label: 'VerfuegbareUrlaubstage' }]
+  VerfuegbareUrlaubstage;
+ 
+  @UI.fieldGroup: [{ position: 40, qualifier: 'VacationEntitlements', label: 'GeplanteUrlaubstage' }]
+  @UI.lineItem: [{ position: 40, label: 'GeplanteUrlaubstage' }] 
+  GeplanteUrlaubstage;
+
+  @UI.fieldGroup: [{ position: 50, qualifier: 'VacationEntitlements', label: 'Verbrauchte Urlaubstage' }]
+  @UI.lineItem: [{ position: 50, label: 'Verbrauchte Urlaubstage' }] 
+  VerbrauchteUrlaubstage;
+  
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
+  CreatedBy;
+  
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AdminData' }]
+  CreatedAt;
+  
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AdminData' }]
+  LastChangedBy;
+  
+  @UI.fieldGroup: [{ position: 50, qualifier: 'AdminData' }]
+  LastChangedAt;
+  
+
+  
+  
+
+}

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZRESK_MITARBEITER</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Mitarbeiter Message Class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRESK_MITARBEITER</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Der Urlaubsantrag &amp;1 wurde erfolgreich abgelehnt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRESK_MITARBEITER</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Der Urlaubsantrag &amp;1 wurde bereits abgelehnt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRESK_MITARBEITER</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Der Urlaubsantrag &amp;1 wurde erfolgreich genehmigt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRESK_MITARBEITER</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Der Urlaubsantrag &amp;1 wurde bereits genehmigt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRESK_MITARBEITER</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Enddatum darf nicht vor dem Startdatum liegen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRESK_MITARBEITER</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Nicht genügend Urlaubstage verfügbar.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRESK_MITARBEITER</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Startdatum darf nicht in der Vergangenheit liegen.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

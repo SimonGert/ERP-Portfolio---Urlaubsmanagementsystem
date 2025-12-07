@@ -1,0 +1,76 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{
+  typeName: 'Urlaubsantrag',
+  typeNamePlural: 'Urlaubsanträge',
+  title.value: 'Startdatum',
+  description.value: 'Status'
+}
+annotate entity zresk_c_urlaubsantrag
+    with 
+{
+    @UI.facet:
+  [
+    { position: 10, targetQualifier: 'AntragsDetails', label: 'Urlaubsantrag Details', type: #FIELDGROUP_REFERENCE },
+    { position: 20, targetQualifier: 'AdminData', label: 'Administrative Daten', type: #FIELDGROUP_REFERENCE }
+  ]
+  
+_antragsteller;
+
+    
+    
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10, label: 'Antragsteller' }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AntragsDetails', label: 'Antragsteller Name' }]
+  antragstellername;
+  
+  @UI.fieldGroup: [ { position: 15, qualifier: 'AntragsDetails', label: 'AntragstellerUuid' } ]
+  antragstelleruuid;
+  
+  @UI.lineItem: [{ position: 20, label: 'Beginn' }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AntragsDetails', label: 'Beginn' }]
+  startdatum;
+
+  @UI.lineItem: [{ position: 30, label: 'Ende' }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AntragsDetails', label: 'Ende' }]
+  enddatum;
+
+  @UI.lineItem: [{ position: 40, label: 'Tage' }]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AntragsDetails', label: 'Tage' }]
+  urlaubstage;
+
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem: [{ position: 50, label: 'Genehmiger' }]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'AntragsDetails', label: 'Genehmigender' }]
+  genehmigendername;
+  
+  @UI.fieldGroup: [ { position: 55, qualifier: 'AntragsDetails', label: 'Genehmiger Uuid' } ]
+  genehmigenderuuid;
+
+  @UI.lineItem: [{ position: 60, label: 'Kommentar' }]
+  @UI.fieldGroup: [{ position: 60, qualifier: 'AntragsDetails', label: 'Comment' }]
+  kommentar;
+
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 70, label: 'Status' }]
+  @UI.fieldGroup: [{ position: 70, qualifier: 'AntragsDetails', label: 'Status' }]
+  status;
+  
+  @UI.lineItem: [ { position: 80, label: 'Urlaubsantrag Uuid' } ]
+  @UI.fieldGroup: [ { position: 80, qualifier: 'AntragsDetails', label: 'Urlaubsantrag Uuid' } ]
+  urlaubsantraguuid;
+
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
+  createdby;
+  
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
+  createdat;
+  
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AdminData' }]
+  lastchangedby;
+  
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AdminData' }]
+  lastchangedat;   
+
+    
+}
