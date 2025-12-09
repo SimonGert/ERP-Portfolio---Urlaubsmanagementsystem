@@ -18,3 +18,5 @@ define behavior for ZRESK_C_URLAUBSANTRAEGE //alias <alias_name>
   use association _Antragsteller;
   use association _Genehmigender;
 }
+
+//APP2
